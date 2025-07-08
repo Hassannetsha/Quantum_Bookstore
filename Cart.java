@@ -17,16 +17,20 @@ public class Cart {
         this.paidAmount = paidAmount;
         if (book == null) {
             System.err.println("This book doesn't exist");
+            Utilities.continueSuccessfully = false;
             return;
         }
         if (book instanceof CanBeAddedToCart) {
             if(!((CanBeAddedToCart)book).canBeAddedToCart(Quantity)){
                 System.out.println("The paid amount  = " + paidAmount + " has been restored");
                 System.err.println("The required Quantity is more than the available in stock");
+                Utilities.continueSuccessfully = false;
                 return;
             }
             if (paidAmount<book.getPrice()) {
                 System.out.println("The paid amount is less than the price of the book");
+                Utilities.continueSuccessfully = false;
+
             }
             else{
                 double change = paidAmount - book.getPrice();
@@ -36,6 +40,8 @@ public class Cart {
         else{
             System.out.println("The paid amount  = " + paidAmount + " has been restored");
             System.err.println("This book can't be added to cart");
+                Utilities.continueSuccessfully = false;
+
             return;
         }
     }

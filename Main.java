@@ -5,7 +5,7 @@ public class Main {
     private static Cart cart;
     public static void main(String[] args) {
         Book book1 = new PaperBook("paper Book", "wild Jungle", LocalDate.of(2023, 7, 3), 100, true, 100);
-        Book book2 = new EBook("Ebook", "robotics", LocalDate.of(2022, 7, 7), true, 50, ".pdf");
+        Book book2 = new EBook("Ebook", "robotics", LocalDate.of(2021, 7, 7), true, 50, ".pdf");
         Book book3 = new DemoBook("Demo Book", "mechanics", LocalDate.of(2024, 1, 26), 200, false);
 
         inventory = Inventory.GetInventory();
