@@ -25,7 +25,7 @@ public class Inventory {
 
             if (yearsBetween > Utilities.numberOfYears) {
                 System.out.println("Removed book with title: " + books.get(i).getTitle()
-                        + " (Published " + yearsBetween + " years ago)");
+                        + " (Published " + yearsBetween + " years ago" + " and the max is " + Utilities.numberOfYears + ")");
                 books.remove(i--);
             }
         }
@@ -34,7 +34,7 @@ public class Inventory {
     public Book getBookByISBN(String ISBN) {
         checkOutDatedBooks();
         for (int i = 0; i < books.size(); i++) {
-            if (books.get(i).getISBN() == ISBN) {
+            if (books.get(i).getISBN().equalsIgnoreCase(ISBN)) {
                 return books.get(i);
             }
 
